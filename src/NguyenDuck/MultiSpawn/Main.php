@@ -85,6 +85,5 @@ class Main extends PluginBase
 			default:
 				return false;
 		}
-		return true;
 	}
 }
