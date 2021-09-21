@@ -44,7 +44,7 @@ class Main extends PluginBase
 			
 			case "setspawn":
 				if (!count($args)) {
-					$world = $sender->getLevel();
+					$world = $sender->getServer()->getLevel();
 					$position = $sender->getPosition();
 
 					$world->setSpawnLocation($position);
@@ -53,7 +53,7 @@ class Main extends PluginBase
 				}
 
 				if (count($args) == 3) {
-					$world = $sender->getLevel();
+					$world = $sender->getServer()->getLevel();
 					$position = new Position(floatval($args[0]), floatval($args[1]), floatval($args[2]));
 
 					$world->setSpawnLocation($position);
