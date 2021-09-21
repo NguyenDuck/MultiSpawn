@@ -53,7 +53,7 @@ class Main extends PluginBase
 				}
 
 				if (count($args) == 3 && $sender instanceof Player) {
-					$world = $sender->getServer()->getLevel();
+					$world = $sender->getLevel();
 					$position = new Position(floatval($args[0]), floatval($args[1]), floatval($args[2]));
 
 					$world->setSpawnLocation($position);
