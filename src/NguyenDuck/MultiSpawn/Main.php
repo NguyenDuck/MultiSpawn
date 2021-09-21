@@ -44,32 +44,32 @@ class Main extends PluginBase
 			
 			case "setspawn":
 				if (!count($args)) {
-					$this->world = $sender->getLevel();
-					$this->position = $sender->getPosition();
+					$world = $sender->getLevel();
+					$position = $sender->getPosition();
 
-					$this->world->setSpawnLocation($this->position);
+					$world->setSpawnLocation($position);
 					$sender->sendMessage("§l§e[MultiSpawn] §aĐã đặt §bspawn §atại vị trí §bcủa bạn§r");
 					return true;
 				}
 
 				if (count($args) == 3) {
-					$this->world = $sender->getLevel();
-					$this->position = new Position(floatval($args[0]), floatval($args[1]), floatval($args[2]));
+					$world = $sender->getLevel();
+					$position = new Position(floatval($args[0]), floatval($args[1]), floatval($args[2]));
 
-					$this->world->setSpawnLocation($this->position);
+					$world->setSpawnLocation($position);
 					$sender->sendMessage("§l§e[MultiSpawn] §aĐã đặt §bspawn §atại vị trí §b".$args[0]." ".$args[1]." ".$args[2]."§r");
 					return true;
 				}
 
 				if (count($args) == 4) {
-					$this->world = $sender->getServer()->getLevelByName($args[0]);
-					$this->position = new Position(floatval($args[1]), floatval($args[2]), floatval($args[3]));
+					$world = $sender->getServer()->getLevelByName($args[0]);
+					$position = new Position(floatval($args[1]), floatval($args[2]), floatval($args[3]));
 
 					if (!$this->world) {
 						$sender->sendMessage("§l§e[MultiSpawn] §cKhông Tìm Thấy Thế Giới §r".$args[0]);
 					}
 
-					$this->world->setSpawnLocation($this->position);
+					$world->setSpawnLocation($position);
 					$sender->sendMessage("§l§e[MultiSpawn] §aĐã đặt §bspawn §a của thế giới §r.$args[0]. §atại vị trí §b".$args[1]." ".$args[2]." ".$args[3]."§r");
 					return true;
 				}
