@@ -1,0 +1,31 @@
+---
+name: MultiSpawn
+description: Cho phép người chơi đặt, dịch chuyển đến spawn và hub
+version: 0.0.4
+main: NguyenDuck\MultiSpawn\Main
+api: 3.22.5
+
+commands:
+  hub:
+    description: §a§lDịch Chuyển Đến Spawn Của Thế Giới Mặc Định§r
+    usage: /hub
+    permission: multispawn.member
+  spawn:
+    description: §a§lDịch Chuyển Đến Spawn Của Thế Giới Hiện Tại§r
+    usage: /spawn
+    permission: multispawn.member
+  setspawn:
+    description: §a§lCài Đặt Spawn Của Thế Giới§r
+    usage: /setspawn {world} <x> <y> <z>
+    permission: multispawn.op
+  sethub:
+    description: §a§lCài Đặt Spawn Của Thế Giới Mặc Định§r
+    usage: /sethub <x> <y> <z>
+    permission: multispawn.op
+
+permission:
+  multispawn.op:
+    default: op
+  multispawn.member:
+    default: true
+...
