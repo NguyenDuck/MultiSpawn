@@ -65,13 +65,17 @@ class Main extends PluginBase
 					$world = $sender->getServer()->getLevelByName($args[0]);
 					$position = new Position(floatval($args[1]), floatval($args[2]), floatval($args[3]));
 
-					if (!$this->world) {
+					if (!$world) {
 						$sender->sendMessage("§l§e[MultiSpawn] §cKhông Tìm Thấy Thế Giới §r".$args[0]);
 					}
 
 					$world->setSpawnLocation($position);
 					$sender->sendMessage("§l§e[MultiSpawn] §aĐã đặt §bspawn §a của thế giới §r.$args[0]. §atại vị trí §b".$args[1]." ".$args[2]." ".$args[3]."§r");
 					return true;
+				}
+
+				if (!$sender instanceof Player) {
+					$sender->sendMessage("§l§e[MultiSpawn] §cLệnh này chỉ có thể sử dụng trong game§r");
 				}
 			
 			case "sethub":
