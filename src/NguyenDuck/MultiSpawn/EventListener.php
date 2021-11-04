@@ -29,6 +29,12 @@ class EventListener implements Listener
 
 	public function onPlayerJoin(PlayerJoinEvent $event)
 	{
-		$event->getPlayer()->teleport($event->getPlayer()->getServer()->getDefaultLevel()->getSafeSpawn());
+		$level = $event->getPlayer()->getServer()->getDefaultLevel();
+		$spawn = $level->getSafeSpawn();
+		$x = round($spawn->x) + 0.5;
+		$y = round($spawn->y);
+		$z = round($spawn->z) + 0.5;
+		$spawn = new Position($x, $y, $z, $level);
+		$event->getPlayer()->teleport($spawn, 0, 0);
 	}
 }

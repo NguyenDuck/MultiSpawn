@@ -9,11 +9,9 @@ commands:
   hub:
     description: §a§lDịch Chuyển Đến Spawn Của Thế Giới Mặc Định§r
     usage: /hub
-    permission: multispawn.member
   spawn:
     description: §a§lDịch Chuyển Đến Spawn Của Thế Giới Hiện Tại§r
     usage: /spawn
-    permission: multispawn.member
   setspawn:
     description: §a§lCài Đặt Spawn Của Thế Giới§r
     usage: /setspawn {world} <x> <y> <z>
@@ -26,6 +24,4 @@ commands:
 permission:
   multispawn.op:
     default: op
-  multispawn.member:
-    default: true
 ...

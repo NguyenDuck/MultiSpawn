@@ -8,9 +8,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
 use pocketmine\command\{
 	Command,
-	CommandExcutor,
-	CommandSender,
-	PluginCommand
+	CommandSender
 };
 use pocketmine\utils\TextFormat;
 use pocketmine\level\Position;
@@ -28,6 +26,9 @@ class Main extends PluginBase
 		switch ($command) {
 			case "hub":
 				if ($sender instanceof Player) {
+					if (!$sender->isOp()) {
+						$sender->setGamemode(2);
+					}
 					$sender->teleport($sender->getServer()->getDefaultLevel()->getSafeSpawn(), 0.0, 0.0);
 				} else {
 					$sender->sendMessage("Bạn chỉ có thể sử dụng lệnh này trong game");
